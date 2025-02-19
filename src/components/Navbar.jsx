@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 z-10 flex w-full item-center justify-between border-b border-b-gray-700 bg-black/70 px-16 py-6 text-white backdrop-blur-lg md:justify-evenly ">
         <a
-          href="/public/Resume_cv.pdf"
+          href="/Resume_cv.pdf"
           download
           className="px-4 py-2 rounded-lg border border-gray-300 text-white text-lg font-medium transition-all duration-300 hover:bg-white hover:text-black hover:border-white flex items-center gap-2"
         >
