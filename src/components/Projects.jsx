@@ -115,24 +115,25 @@ const ScrollReveal = ({ children }) => {
 const ProjectCard = ({ project }) => {
   return (
     <ScrollReveal>
-      <div className="flex w-full max-w-[1000px] flex-col gap-20 text-white">
-        <a href={project.url} target="_blank" rel="noopener noreferrer">
+      <div className="flex w-full max-w-[1000px] flex-col md:flex-row items-center gap-x-10 mt-8">
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:w-[300px] w-full"
+        >
           <img
             src={project.image}
-            alt=""
-            className="w-full cursor-pointer rounded-2xl
-      transition-all duration-300 hover:scale-105 md:w-[300px]"
+            alt={project.title}
+            className="w-full md:w-[300px] rounded-2xl transition-all duration-300 hover:scale-105"
           />
         </a>
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-col gap-3">
-            <div className="text-xl font-semibold">{project.title}</div>
-            <p className="text-gray-400">{project.description}</p>
-          </div>
-
-          <div className="flex flex-wrap gap-5">
+        <div className="flex-1 flex flex-col gap-5  md:text-left mt-8">
+          <h3 className="text-xl font-semibold">{project.title}</h3>
+          <p className="text-gray-400">{project.description}</p>
+          <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
-              <span key={index} className="rounded-lg bg-slate-800 p-3">
+              <span key={index} className="rounded-lg bg-slate-800 p-2 px-4">
                 {tech}
               </span>
             ))}
@@ -142,6 +143,40 @@ const ProjectCard = ({ project }) => {
     </ScrollReveal>
   );
 };
+
+// const ProjectCard = ({ project }) => {
+//   return (
+//     <ScrollReveal>
+//       <div className="flex w-full max-w-[1000px] flex-col gap-20 text-white md:flex-row  ">
+//         <a
+//           href={project.url}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="md:w-[300px] w-full"
+//         >
+//           <img
+//             src={project.image}
+//             alt=""
+//             className="w-full cursor-pointer rounded-2xl
+//       transition-all duration-300 hover:scale-105 md:w-[300px]"
+//           />
+//         </a>
+//         <div className="flex flex-col flex-1 gap-2 md:text-left mt-[100px] ">
+//           <div className="text-xl font-semibold">{project.title}</div>
+//           <p className="text-gray-400">{project.description}</p>
+
+//           <div className="flex flex-wrap gap-2">
+//             {project.technologies.map((tech, index) => (
+//               <span key={index} className="rounded-lg bg-slate-800 p-2 px-4">
+//                 {tech}
+//               </span>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </ScrollReveal>
+//   );
+// };
 
 const Projects = () => {
   return (

@@ -14,11 +14,12 @@ const Contact = () => {
       <div className="flex flex-col items-center text-center md:items-start md:text-left">
         <h1 className="text-4xl font-bold md:text-6xl">
           <span className="bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
-            Get in Touch
+            Let’s Connect
           </span>
         </h1>
         <p className="mt-3 text-lg font-semibold text-gray-400 md:text-xl">
-          Send me a message
+          I’m always open to new opportunities, collaborations, or just a
+          friendly chat
         </p>
 
         <a
@@ -43,7 +44,7 @@ const Contact = () => {
 
         {/* Kartu ID */}
         <motion.div
-          className="flex w-44 flex-col items-center justify-center rounded-xl bg-gradient-to-b from-sky-700 via-black to-black p-4 text-white shadow-lg md:w-52"
+          className="flex w-44 flex-col items-center justify-center rounded-xl bg-gradient-to-b from-sky-700 via-black to-black p-4 text-white shadow-lg md:w-70"
           animate={{ rotate: isDragging ? 5 : 0 }}
           transition={{ type: "spring", stiffness: 150 }}
         >
