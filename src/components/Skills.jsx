@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   BiLogoBootstrap,
   BiLogoCss3,
-  BiLogoGithub,
   BiLogoHtml5,
   BiLogoJavascript,
   BiLogoNodejs,
@@ -12,7 +11,12 @@ import {
 } from "react-icons/bi";
 
 import { FaFileExcel, FaFileWord, FaFilePowerpoint } from "react-icons/fa";
-import { SiGoogledocs, SiGooglesheets } from "react-icons/si";
+import {
+  SiGoogledocs,
+  SiGooglesheets,
+  SiExpress,
+  SiMongodb,
+} from "react-icons/si";
 
 // Data untuk kategori skills
 const skillsData = [
@@ -27,7 +31,8 @@ const skillsData = [
       { name: "Bootstrap", level: "Advanced", icon: BiLogoBootstrap },
       { name: "Php", level: "Intermediate", icon: BiLogoPhp },
       { name: "Node Js", level: "Intermediate", icon: BiLogoNodejs },
-      { name: "Github", level: "Intermediate", icon: BiLogoGithub },
+      { name: "Express", level: "Intermediate", icon: SiExpress },
+      { name: "Mongo Db", level: "Intermediate", icon: SiMongodb },
     ],
   },
   {
@@ -52,6 +57,8 @@ const skills = [
   { icon: BiLogoBootstrap, color: "text-purple-500" },
   { icon: BiLogoPhp, color: "text-purple-300" },
   { icon: BiLogoNodejs, color: "text-green-500" },
+  { icon: SiExpress, color: "text-green-500" },
+  { icon: SiMongodb, color: "text-green-500" },
 ];
 
 const Skills = () => {

@@ -7,8 +7,42 @@ import cryptoSearch from "/public/cryptosearch1.png";
 import bookShelf from "/public/bookshelf.png";
 import yejiStore from "/public/yeji_store.png";
 import { motion } from "framer-motion";
+import weather_app from "/public/weatherapp.png";
+import realtime_app from "/public/realtime_app.png";
+import movie_app from "/public/movie_app.png";
 
 const projectsData = [
+  {
+    image: movie_app,
+    title: "Movie App",
+    description: "Movie App with firebase and fetch Api",
+    technologies: ["React", "Tailwind", "Firebase", "Axios", "API"],
+    url: "https://movie-app-pi-blue.vercel.app/",
+  },
+  {
+    image: realtime_app,
+    title: "Realtime Chat App",
+    description:
+      " MERN STACK Project [realtimeChat-app (InstaApp)], Highlight: Tech Stack: Mern + Socket Io + Talwindcss and daisy UI, Zustand (global state management), Authentication & Authorizanation JWT , error handling, Deployment and Responsive design (dekstop/mobile",
+    technologies: [
+      "React",
+      "Tailwind",
+      "Node js",
+      "Express.js",
+      "Mongo Db",
+      "Socket Io",
+      "Daisy UI",
+    ],
+    url: "https://realtimechat-app-zfkx.onrender.com/",
+  },
+  {
+    image: weather_app,
+    title: "Weather App",
+    description:
+      "Weather App fetch API fiture: Current wether display, Search, Get User Location Automatically, Loading indicator and Dynamic Background Based on Weather",
+    technologies: ["React", "Tailwind", "Axios"],
+    url: "https://weather-app-xi-two-95.vercel.app",
+  },
   {
     image: massageWebsite,
     title: "Massage-website",
