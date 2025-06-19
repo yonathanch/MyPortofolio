@@ -10,7 +10,11 @@ import {
   BiLogoTailwindCss,
 } from "react-icons/bi";
 
-import { FaFileExcel, FaFileWord, FaFilePowerpoint } from "react-icons/fa";
+import {
+  FaFileExcel,
+  FaFileWord,
+  FaFilePowerpoint,
+  FaLaravel,} from "react-icons/fa";
 import {
   SiGoogledocs,
   SiGooglesheets,
@@ -23,26 +27,27 @@ const skillsData = [
   {
     category: "Web Developer",
     skills: [
-      { name: "HTML", level: "Advanced", icon: BiLogoHtml5 },
-      { name: "CSS", level: "Advanced", icon: BiLogoCss3 },
-      { name: "JavaScript", level: "Intermediate", icon: BiLogoJavascript },
-      { name: "React", level: "Advanced", icon: BiLogoReact },
-      { name: "Tailwind", level: "Advanced", icon: BiLogoTailwindCss },
-      { name: "Bootstrap", level: "Advanced", icon: BiLogoBootstrap },
-      { name: "Php", level: "Intermediate", icon: BiLogoPhp },
-      { name: "Node Js", level: "Intermediate", icon: BiLogoNodejs },
-      { name: "Express", level: "Intermediate", icon: SiExpress },
-      { name: "Mongo Db", level: "Intermediate", icon: SiMongodb },
+      { name: "HTML", icon: BiLogoHtml5 },
+      { name: "CSS", icon: BiLogoCss3 },
+      { name: "JavaScript", icon: BiLogoJavascript },
+      { name: "React", icon: BiLogoReact },
+      { name: "Laravel", icon: FaLaravel},
+      { name: "Tailwind", icon: BiLogoTailwindCss },
+      { name: "Bootstrap", icon: BiLogoBootstrap },
+      { name: "Php", icon: BiLogoPhp },
+      { name: "Node Js", icon: BiLogoNodejs },
+      { name: "Express", icon: SiExpress },
+      { name: "Mongo Db", icon: SiMongodb },
     ],
   },
   {
     category: "Microsoft Office",
     skills: [
-      { name: "Word", level: "Advanced", icon: FaFileWord },
-      { name: "Docs", level: "Advanced", icon: SiGoogledocs },
-      { name: "Excel", level: "Intermediate", icon: FaFileExcel },
-      { name: "Sheets", level: "Intermediate", icon: SiGooglesheets },
-      { name: "PowerPoint", level: "Advanced", icon: FaFilePowerpoint },
+      { name: "Word", icon: FaFileWord },
+      { name: "Docs", icon: SiGoogledocs },
+      { name: "Excel", icon: FaFileExcel },
+      { name: "Sheets", icon: SiGooglesheets },
+      { name: "PowerPoint", icon: FaFilePowerpoint },
     ],
   },
 ];
@@ -53,6 +58,7 @@ const skills = [
   { icon: BiLogoCss3, color: "text-blue-500" },
   { icon: BiLogoJavascript, color: "text-yellow-500" },
   { icon: BiLogoReact, color: "text-sky-500" },
+  { icon: FaLaravel, color: "text-red-500" },
   { icon: BiLogoTailwindCss, color: "text-sky-400" },
   { icon: BiLogoBootstrap, color: "text-purple-500" },
   { icon: BiLogoPhp, color: "text-purple-300" },
@@ -98,8 +104,7 @@ const Skills = () => {
                   )}
                   <p className="text-lg font-medium text-gray-300">
                     {skill.name}
-                  </p>
-                  <span className="text-sm text-gray-300">{skill.level}</span>
+                  </p>        
                 </div>
               ))}
             </div>

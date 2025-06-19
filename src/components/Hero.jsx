@@ -65,14 +65,14 @@ const Hero = () => {
             About Me
           </h2>
           <p className="text-sm md:text-base text-pretty max-w-[600px] text-left text-gray-400">
-            I’m a fresh graduate of Informatics at Gunadarma University. I’m a
-            junior web programmer. In the 6th semester, I participated in the
-            MSIB Batch 4 program, which is a certified independent study with
-            the lesson “2023 Complete Front-End Engineer Career With ReactJS” at
-            Alterra Academy. There, I learned about React JS. In the 7th
-            semester, I participated in the MSIB Batch 5 program, which is a
-            certified independent study with the lesson “Front-End Web and
-            Back-End Developer” at Dicoding Indonesia.
+            I’m Informatics fresh graduate with expertise in ReactJS at Alterra
+            Academy (training in the MSIB batch 4 program) and Full-stack
+            Development at Dicoding Indonesia (training in the MSIB batch 5
+            program). I have successfully developed website projects from side
+            jobs, namely wedding website and the latest boarding house rental
+            website using React Js and have worked as a logistics staff. Proven
+            ability to deliver end-to-end web solutions through certified
+            training and project experience.
           </p>
         </motion.div>
       </div>

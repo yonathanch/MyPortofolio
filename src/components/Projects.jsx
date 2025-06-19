@@ -10,8 +10,17 @@ import { motion } from "framer-motion";
 import weather_app from "/public/weatherapp.png";
 import realtime_app from "/public/realtime_app.png";
 import movie_app from "/public/movie_app.png";
+import laravel_blogs from "/public/1-laravelblog.png";
+
 
 const projectsData = [
+  {
+    image: laravel_blogs,
+    title: "Laravel-Blogs",
+    description: "Created a blog website using Laravel and sql lite by implementing Eloquent ORM, Database Seeder, N+1, Searching and pagination. ",
+    technologies: ["Laravel", "Sql Lite"],
+    url: "https://github.com/yonathanch/Laravel-blogs",
+  },
   {
     image: movie_app,
     title: "Movie App",
@@ -177,40 +186,6 @@ const ProjectCard = ({ project }) => {
     </ScrollReveal>
   );
 };
-
-// const ProjectCard = ({ project }) => {
-//   return (
-//     <ScrollReveal>
-//       <div className="flex w-full max-w-[1000px] flex-col gap-20 text-white md:flex-row  ">
-//         <a
-//           href={project.url}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="md:w-[300px] w-full"
-//         >
-//           <img
-//             src={project.image}
-//             alt=""
-//             className="w-full cursor-pointer rounded-2xl
-//       transition-all duration-300 hover:scale-105 md:w-[300px]"
-//           />
-//         </a>
-//         <div className="flex flex-col flex-1 gap-2 md:text-left mt-[100px] ">
-//           <div className="text-xl font-semibold">{project.title}</div>
-//           <p className="text-gray-400">{project.description}</p>
-
-//           <div className="flex flex-wrap gap-2">
-//             {project.technologies.map((tech, index) => (
-//               <span key={index} className="rounded-lg bg-slate-800 p-2 px-4">
-//                 {tech}
-//               </span>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </ScrollReveal>
-//   );
-// };
 
 const Projects = () => {
   return (
