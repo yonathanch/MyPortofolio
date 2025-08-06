@@ -6,8 +6,10 @@ import {
   BiLogoJavascript,
   BiLogoNodejs,
   BiLogoPhp,
+  BiLogoVuejs,
   BiLogoReact,
   BiLogoTailwindCss,
+  BiLogoWordpress
 } from "react-icons/bi";
 
 import {
@@ -30,14 +32,16 @@ const skillsData = [
       { name: "HTML", icon: BiLogoHtml5 },
       { name: "CSS", icon: BiLogoCss3 },
       { name: "JavaScript", icon: BiLogoJavascript },
+      { name: "Vue JS", icon: BiLogoVuejs },
+      { name: "Laravel", icon: FaLaravel },
       { name: "React", icon: BiLogoReact },
-      { name: "Laravel", icon: FaLaravel},
       { name: "Tailwind", icon: BiLogoTailwindCss },
       { name: "Bootstrap", icon: BiLogoBootstrap },
       { name: "Php", icon: BiLogoPhp },
       { name: "Node Js", icon: BiLogoNodejs },
       { name: "Express", icon: SiExpress },
       { name: "Mongo Db", icon: SiMongodb },
+      { name: "Wordpress", icon: BiLogoWordpress },
     ],
   },
   {
@@ -57,14 +61,16 @@ const skills = [
   { icon: BiLogoHtml5, color: "text-orange-500" },
   { icon: BiLogoCss3, color: "text-blue-500" },
   { icon: BiLogoJavascript, color: "text-yellow-500" },
-  { icon: BiLogoReact, color: "text-sky-500" },
+  { icon: BiLogoVuejs, color: "text-green-500" },
   { icon: FaLaravel, color: "text-red-500" },
+  { icon: BiLogoReact, color: "text-sky-500" },
   { icon: BiLogoTailwindCss, color: "text-sky-400" },
   { icon: BiLogoBootstrap, color: "text-purple-500" },
   { icon: BiLogoPhp, color: "text-purple-300" },
   { icon: BiLogoNodejs, color: "text-green-500" },
   { icon: SiExpress, color: "text-green-500" },
   { icon: SiMongodb, color: "text-green-500" },
+  { icon: BiLogoWordpress, color: "text-blue-500" },
 ];
 
 const Skills = () => {
