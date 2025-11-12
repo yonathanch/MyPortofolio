@@ -4,9 +4,6 @@ import massageWebsite from "/public/massage-website.jpg";
 import emading from "/public/e-mading2.jpg";
 import adminBalink from "/public/admin-balink.png";
 import jessyFood from "/public/jesyfood1.png";
-import cryptoSearch from "/public/cryptosearch1.png";
-import bookShelf from "/public/bookshelf.png";
-import weather_app from "/public/weatherapp.png";
 import realtime_app from "/public/realtime_app.png";
 import movie_app from "/public/movie_app.png";
 import laravel_blogs from "/public/1-laravelblog.png";
@@ -49,8 +46,47 @@ import blogapp_3 from "/public/output_blogsapp_laravel/3.png"
 import blogapp_4 from "/public/output_blogsapp_laravel/4.png"
 import blogapp_5 from "/public/output_blogsapp_laravel/5.png"
 
+// api-ticketing-system
+import api_ticketing_system_1 from "/public/output_api_ticketing_system/1.login.png"
+import api_ticketing_system_2 from "/public/output_api_ticketing_system/2.get_profile.png"
+import api_ticketing_system_3 from "/public/output_api_ticketing_system/3.getall_ticket.png"
+import api_ticketing_system_4 from "/public/output_api_ticketing_system/4.dashboardstatistic.png"
+import api_ticketing_system_5 from "/public/output_api_ticketing_system/5.register_user.png"
+import api_ticketing_system_6 from "/public/output_api_ticketing_system/6.login_user.png"
+import api_ticketing_system_7 from "/public/output_api_ticketing_system/7.getprofile_user.png"
+import api_ticketing_system_8 from "/public/output_api_ticketing_system/8.createticket_user.png"
+import api_ticketing_system_9 from "/public/output_api_ticketing_system/9.admincreate-reply.png"
+import api_ticketing_system_10 from "/public/output_api_ticketing_system/10.result.png"
+import api_ticketing_system_11 from "/public/output_api_ticketing_system/11.ticketsDB.png"
+import api_ticketing_system_12 from "/public/output_api_ticketing_system/12.tickets-replyDB.png"
+
+//pointOfSale
+import point_of_sale1 from "/public/output_point_of_sale/1.png"
+import point_of_sale2 from "/public/output_point_of_sale/2.png"
+import point_of_sale3 from "/public/output_point_of_sale/3.png"
+import point_of_sale4 from "/public/output_point_of_sale/4.png"
+import point_of_sale5 from "/public/output_point_of_sale/5.png"
+import point_of_sale6 from "/public/output_point_of_sale/6.png"
+
+
 
 const projectsData = [
+    {
+      images: [point_of_sale1, point_of_sale2, point_of_sale3, point_of_sale4, point_of_sale5, point_of_sale6, ], 
+      title: "Point Of Sale",
+      description: "POS is useful for managing transactions in business.",
+      technologies: ["Laravel, Jquery, Ajax"],
+      url: "https://github.com/yonathanch/point-of-sale",
+    },
+  {
+    images: [api_ticketing_system_1, api_ticketing_system_2, api_ticketing_system_3, api_ticketing_system_4, 
+              api_ticketing_system_5, api_ticketing_system_6, api_ticketing_system_7, api_ticketing_system_8, 
+              api_ticketing_system_9, api_ticketing_system_10, api_ticketing_system_11, api_ticketing_system_12, ], 
+    title: "api-ticketing-system",
+    description: "Managed, processed, and transformed customer or internal requests into structured digital 'tickets' to resolve issues.",
+    technologies: ["Laravel"],
+    url: "https://github.com/yonathanch/api-ticketing-system",
+  },
   {
     images: [blogapp_1, blogapp_2, blogapp_3, blogapp_4, blogapp_5 ], 
     title: "BlogsApp-Laravel",
@@ -106,14 +142,6 @@ const projectsData = [
     url: "https://realtimechat-app-zfkx.onrender.com/",
   },
   {
-    image: weather_app,
-    title: "Weather App",
-    description:
-      "Weather App fetch API fiture: Current wether display, Search, Get User Location Automatically, Loading indicator and Dynamic Background Based on Weather",
-    technologies: ["React", "Tailwind", "Axios"],
-    url: "https://weather-app-xi-two-95.vercel.app",
-  },
-  {
     image: massageWebsite,
     title: "Massage-website",
     description:
@@ -150,29 +178,7 @@ const projectsData = [
     technologies: ["Html5", "Css", "Javascript", "PWAs", "Testing Optimized"],
     url: "https://katalog-restaurant-pwa-testing-and-optimized.vercel.app/",
   },
-  {
-    image: cryptoSearch,
-    title: "CryptoSearch-website",
-    description:
-      "Web Application CryptoSearch with ES6, Custom Element, NPM, Module Bundler, and AJAX",
-    technologies: [
-      "Html5",
-      "Css",
-      "Javascript",
-      "ECMAScript",
-      "Package Manager",
-      "Module Bundler",
-      "AJAX",
-    ],
-    url: "https://crypto-finder-sage.vercel.app/",
-  },
-  {
-    image: bookShelf,
-    title: "bookshelf-website",
-    description: "Website Bookshelf Data Management Using DOM and Web Storage",
-    technologies: ["Html5", "Css", "DOM", "Web Storage"],
-    url: "https://bookshelf-app-eight.vercel.app/",
-  },
+
 ];
 
 const ScrollReveal = ({ children }) => {
@@ -311,7 +317,7 @@ const Projects = () => {
       >
         <ScrollReveal>
           <h1 className="text-4xl font-light text-white md:text-6xl">
-            My Projects
+            Recent My Projects
           </h1>
         </ScrollReveal>
 
