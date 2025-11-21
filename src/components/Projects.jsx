@@ -67,14 +67,21 @@ import point_of_sale3 from "/public/output_point_of_sale/3.png"
 import point_of_sale4 from "/public/output_point_of_sale/4.png"
 import point_of_sale5 from "/public/output_point_of_sale/5.png"
 import point_of_sale6 from "/public/output_point_of_sale/6.png"
+import point_of_sale7 from "/public/output_point_of_sale/7.png"
+import point_of_sale8 from "/public/output_point_of_sale/8.png"
+import point_of_sale9 from "/public/output_point_of_sale/9.png"
+import point_of_sale10 from "/public/output_point_of_sale/10.png"
+import point_of_sale11 from "/public/output_point_of_sale/11.png"
+import point_of_sale12 from "/public/output_point_of_sale/12.png"
 
 
 
 const projectsData = [
     {
-      images: [point_of_sale1, point_of_sale2, point_of_sale3, point_of_sale4, point_of_sale5, point_of_sale6, ], 
+      images: [point_of_sale1, point_of_sale2, point_of_sale3, point_of_sale4, point_of_sale5, point_of_sale6, 
+                point_of_sale7, point_of_sale8, point_of_sale9, point_of_sale10, point_of_sale11, point_of_sale12,], 
       title: "Point Of Sale",
-      description: "POS is useful for managing transactions in business.",
+      description: "Point of Sale (POS) System - A web-based sales and inventory management application with real-time transaction processing, financial reporting, and automated stock control features.",
       technologies: ["Laravel, Jquery, Ajax"],
       url: "https://github.com/yonathanch/point-of-sale",
     },
