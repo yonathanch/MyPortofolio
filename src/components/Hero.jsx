@@ -65,7 +65,7 @@ const Hero = () => {
             About Me
           </h2>
           <p className="text-sm md:text-base text-pretty max-w-[600px] text-left text-gray-400">
-            I’m Informatics fresh graduate with expertise in ReactJS at Alterra
+            I’m fullstack developer with expertise in ReactJS at Alterra
             Academy (training in the MSIB batch 4 program) and Full-stack
             Development at Dicoding Indonesia (training in the MSIB batch 5
             program). I have successfully developed website projects from side

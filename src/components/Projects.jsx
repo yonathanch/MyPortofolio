@@ -74,9 +74,58 @@ import point_of_sale10 from "/public/output_point_of_sale/10.png"
 import point_of_sale11 from "/public/output_point_of_sale/11.png"
 import point_of_sale12 from "/public/output_point_of_sale/12.png"
 
+//rekam medis
+import rekam_medis1 from "/public/output_rekammedis_laravelInertiaReact/1.png"
+import rekam_medis2 from "/public/output_rekammedis_laravelInertiaReact/2.png"
+import rekam_medis3 from "/public/output_rekammedis_laravelInertiaReact/3.png"
+import rekam_medis4 from "/public/output_rekammedis_laravelInertiaReact/4.png"
+import rekam_medis5 from "/public/output_rekammedis_laravelInertiaReact/5.png"
+import rekam_medis6 from "/public/output_rekammedis_laravelInertiaReact/6.png"
+import rekam_medis7 from "/public/output_rekammedis_laravelInertiaReact/7.png"
+import rekam_medis8 from "/public/output_rekammedis_laravelInertiaReact/8.png"
+import rekam_medis9 from "/public/output_rekammedis_laravelInertiaReact/9.png"
+
+//inventory App
+import inventory_app1 from "/public/output_inventoryApp/1.png"
+import inventory_app2 from "/public/output_inventoryApp/2.png"
+import inventory_app3 from "/public/output_inventoryApp/3.png"
+import inventory_app4 from "/public/output_inventoryApp/4.png"
+import inventory_app5 from "/public/output_inventoryApp/5.png"
+import inventory_app6 from "/public/output_inventoryApp/6.png"
+import inventory_app7 from "/public/output_inventoryApp/7.png"
+import inventory_app8 from "/public/output_inventoryApp/8.png"
+import inventory_app9 from "/public/output_inventoryApp/9.png"
+import inventory_app10 from "/public/output_inventoryApp/10.png"
+import inventory_app11 from "/public/output_inventoryApp/11.png"
+import inventory_app12 from "/public/output_inventoryApp/12.png"
+import inventory_app13 from "/public/output_inventoryApp/13.png"
+import inventory_app14 from "/public/output_inventoryApp/14.png"
+import inventory_app15 from "/public/output_inventoryApp/15.png"
+import inventory_app16 from "/public/output_inventoryApp/16.png"
+
+
+
 
 
 const projectsData = [
+    {
+      images: [inventory_app1, inventory_app2, inventory_app3, inventory_app4, inventory_app5, inventory_app6, 
+        inventory_app7, inventory_app8, inventory_app9, inventory_app10, inventory_app11, inventory_app12,
+        inventory_app13, inventory_app14, inventory_app15, inventory_app16
+      ], 
+      title: "Inventory App",
+      description: "Inventory App is a web-based application used to manage product stock, incoming and outgoing transactions, stock cards, return transactions, stock opname, price increase reports, and stock change monitoring.",
+      technologies: ["Laravel, Jquery, Ajax"],
+      url: "https://github.com/yonathanch/Laravel_inventory_app",
+    },
+    {
+      images: [rekam_medis1, rekam_medis2, rekam_medis3, rekam_medis4, rekam_medis5, rekam_medis6, 
+                rekam_medis7, rekam_medis8, rekam_medis9,], 
+      title: "Rekam Medis",
+      description: "Medical record management app for clinics built with Laravel, Inertia.js, React, and TypeScript, designed to manage patient data and record diagnoses.",
+      technologies: ["Laravel, Inertia JS, Tailwind Css, Axios, React Select"],
+      url: "https://github.com/yonathanch/rekam-medis-laravel-react",
+    },
     {
       images: [point_of_sale1, point_of_sale2, point_of_sale3, point_of_sale4, point_of_sale5, point_of_sale6, 
                 point_of_sale7, point_of_sale8, point_of_sale9, point_of_sale10, point_of_sale11, point_of_sale12,], 
