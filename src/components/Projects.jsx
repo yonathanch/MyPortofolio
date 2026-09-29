@@ -17,7 +17,7 @@ const Projects = () => {
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="micro-label text-mute">(01) — Selected Work</p>
-            <h2 className="font-display mt-4 text-5xl font-semibold tracking-tight md:text-7xl">
+            <h2 className="font-display mt-4 break-words text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">
               PROJECTS<span className="text-accent">.</span>
             </h2>
           </div>

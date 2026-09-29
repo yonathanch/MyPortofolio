@@ -1,8 +1,8 @@
 const items = [
-  "Available for New Projects",
-  "Open to Freelance",
-  "Fullstack Developer",
-  "React · Laravel · Node.js",
+  "FullStack Developer",
+  "IT Support",
+  "APPLICATION DEVELOPMENT",
+  "CUSTOM APPLICATIONS",
 ];
 
 const Marquee = () => (

@@ -27,7 +27,10 @@ const ProjectsPage = () => {
       : projects.filter((p) => p.category !== "IT Support");
   const totalPages = Math.max(1, Math.ceil(inCategory.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
-  const visible = inCategory.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const visible = inCategory.slice(
+    (safePage - 1) * PAGE_SIZE,
+    safePage * PAGE_SIZE,
+  );
 
   const switchFilter = (cat) => {
     setFilter(cat);
@@ -37,7 +40,9 @@ const ProjectsPage = () => {
 
   const goToPage = (p) => {
     setPage(p);
-    document.getElementById("work")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById("work")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -52,15 +57,10 @@ const ProjectsPage = () => {
               </Link>{" "}
               / Projects
             </p>
-            <h1 className="font-display mt-4 text-5xl font-semibold tracking-tight md:text-7xl">
+            <h1 className="font-display mt-4 break-words text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">
               ALL PROJECTS<span className="text-accent">.</span>
             </h1>
           </div>
-          <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
-            The complete archive — {projects.length} end-to-end builds from
-            Laravel systems to React interfaces. Click any image to browse all
-            screenshots.
-          </p>
         </Reveal>
 
         {/* Category filter — 2 buckets */}

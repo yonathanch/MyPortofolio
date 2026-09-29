@@ -4,7 +4,10 @@ import { profile } from "../data/portfolio";
 const ease = [0.22, 1, 0.36, 1];
 
 const About = () => (
-  <section id="about" className="border-t border-ink/10 px-5 py-24 md:px-8 md:py-32">
+  <section
+    id="about"
+    className="border-t border-ink/10 px-5 py-24 md:px-8 md:py-32"
+  >
     <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -30,10 +33,9 @@ const About = () => (
         className="md:col-span-8"
       >
         <p className="font-display max-w-2xl text-xl leading-snug tracking-tight text-ink md:text-3xl">
-          Fullstack Developer focused on building end-to-end web solutions —
-          trained at Alterra Academy (MSIB batch 4) and Dicoding Indonesia
-          (MSIB batch 5), with shipped client work from wedding websites to
-          boarding house rental platforms.
+          I build web applications that solve real-world problems — from
+          intuitive interfaces to reliable backend systems. My background spans
+          Fullstack Development and IT Support
         </p>
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
           {profile.about}

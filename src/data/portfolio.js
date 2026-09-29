@@ -8,9 +8,10 @@
 export const profile = {
   firstName: "Yonathan",
   lastName: "Christianto",
-  role: "Fullstack Developer",
+  role: "Fullstack Developer & IT Support",
   tagline: "React · Laravel · Node.js",
-  about: "I'm a fullstack developer with expertise in ReactJS at Alterra Academy (training in the MSIB batch 4 program) and Full-stack Development at Dicoding Indonesia (training in the MSIB batch 5 program). I have successfully developed website projects from side jobs, namely a wedding website and the latest boarding house rental website using React JS, and have worked as a logistics staff. Proven ability to deliver end-to-end web solutions through certified training and project experience.",
+  about:
+    "Informatics graduate with hands-on experience in Full-Stack Development, IT support, and computer networking. Experienced in web application development, database management, hardware and network troubleshooting, and technical support. Proficient in modern web technologies and familiar with network configuration, IP addressing, subnetting, and system deployment.",
   photo: "/ghibli.png",
   photoCard: "/pp2.jpg",
   cv: "/Yonathan_Christianto-CV.pdf",
@@ -20,7 +21,10 @@ export const profile = {
 // ---------- Social links (existing) ----------
 export const socials = [
   { name: "GitHub", url: "https://github.com/yonathanch" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/yonathan-christianto/" },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/yonathan-christianto/",
+  },
   { name: "Instagram", url: "https://www.instagram.com/natann.ch/" },
 ];
 
@@ -38,32 +42,32 @@ export const navLinks = [
 // ---------- Experience (existing background only — no invented data) ----------
 export const experience = [
   {
-    period: "MSIB Batch 4",
-    title: "ReactJS Bootcamp Student",
-    org: "Alterra Academy",
+    period: "Jun 2026 - Sep 2026",
+    title: " The Computer and Network Technician Training Program",
+    org: "Pusat Pelatihan Kerja Daerah Jakarta Utara",
     description:
-      "Intensive ReactJS training program focused on building modern, component-based web interfaces.",
+      "I attended training at PPKD North Jakarta, covering modules on troubleshooting and maintaining computer systems and networks, operating system and software installation, LAN/WAN, data recovery, printer usage, IP addressing and subnetting, wireless networking, switch and VLAN configuration, and routing using OSPF, RIP, and BGP.",
   },
   {
-    period: "MSIB Batch 5",
-    title: "Full-stack Development Student",
+    period: "Dec 2025 - Mar 2026",
+    title: "Fullstack Website Developer",
+    org: "Best Master Ware",
+    description: "I work as a full-stack developer and IT support.",
+  },
+  {
+    period: "Agt 2023 - Des 2023 ",
+    title: "Pengembang Front-End Web Dan Back-End ",
     org: "Dicoding Indonesia",
     description:
-      "Certified full-stack development training covering frontend, backend, and deployment practices.",
+      "I was a student in the MSIB program Pengembang Front-End Web Dan Back-End at Dicoding Indonesia SIB Cycle 5",
   },
+
   {
-    period: "Freelance",
-    title: "Web Developer",
-    org: "Self-employed",
+    period: "Feb 2023 - Jun 2023",
+    title: "2023 Complete Front-End Engineer Career with ReactJS",
+    org: "Alterra Academy",
     description:
-      "Delivered end-to-end web solutions from side jobs, including a wedding website and a boarding house rental website built with React JS.",
-  },
-  {
-    period: "Previous",
-    title: "Logistics Staff",
-    org: "—",
-    description:
-      "Managed operational logistics workflows before transitioning full-time into software development.",
+      "I  was a student in the MSIB program 2023 Complete Front-End Engineer Career with ReactJS at Alterra (SIB cycle 4)",
   },
 ];
 
@@ -100,7 +104,13 @@ export const projects = [
     title: "Rekam Medis",
     description:
       "Medical record management app for clinics built with Laravel, Inertia.js, React, and TypeScript, designed to manage patient data and record diagnoses.",
-    technologies: ["Laravel", "Inertia JS", "Tailwind Css", "Axios", "React Select"],
+    technologies: [
+      "Laravel",
+      "Inertia JS",
+      "Tailwind Css",
+      "Axios",
+      "React Select",
+    ],
     category: "Fullstack",
     url: "https://github.com/yonathanch/rekam-medis-laravel-react",
     demo: null,
@@ -248,7 +258,15 @@ export const projects = [
     title: "Realtime Chat App",
     description:
       "MERN STACK Project [realtimeChat-app (InstaApp)], Highlight: Tech Stack: Mern + Socket Io + Talwindcss and daisy UI, Zustand (global state management), Authentication & Authorizanation JWT, error handling, Deployment and Responsive design (dekstop/mobile).",
-    technologies: ["React", "Tailwind", "Node js", "Express.js", "Mongo Db", "Socket Io", "Daisy UI"],
+    technologies: [
+      "React",
+      "Tailwind",
+      "Node js",
+      "Express.js",
+      "Mongo Db",
+      "Socket Io",
+      "Daisy UI",
+    ],
     category: "Fullstack",
     url: "https://realtimechat-app-zfkx.onrender.com/",
     demo: "https://realtimechat-app-zfkx.onrender.com/",
@@ -278,7 +296,12 @@ export const projects = [
     title: "admin-balink",
     description:
       "The Balink admin website functions to manage various data within it, starting from adding, editing, and deleting data in the Balink application.",
-    technologies: ["React", "Javascript", "Bootstrap", "Global state Management and Data Fetching"],
+    technologies: [
+      "React",
+      "Javascript",
+      "Bootstrap",
+      "Global state Management and Data Fetching",
+    ],
     category: "Frontend",
     url: "https://admin-balink.vercel.app/",
     demo: "https://admin-balink.vercel.app/",
@@ -301,47 +324,91 @@ export const projects = [
   // screenshots like regular projects.
   // ---------------------------------------------------------------------
   {
-    title: "IT Support — Network & Hardware Troubleshooting",
-    description:
-      "TODO (dummy): Installation, configuration, and troubleshooting of office network and hardware — PC assembly, LAN setup, printer sharing, and user support documentation.",
-    technologies: ["Networking", "Hardware", "Windows", "Troubleshooting"],
+    title:
+      "The most basic configuration to connect the ISP link to a PC or LAN",
+    description: "Using MikroTik and Winbox.",
+    technologies: ["Networking"],
     category: "IT Support",
     demoType: "linkedin-video",
-    demo: "https://www.linkedin.com/in/yonathan-christianto/",
-    url: "https://www.linkedin.com/in/yonathan-christianto/",
-    images: ["/jesyfood1.png"],
+    demo: "https://lnkd.in/p/gKQ-v8TF",
+    url: "https://lnkd.in/p/gKQ-v8TF",
+    images: ["/MikroTik_ISP_Basic_Setup/1.MikroTik_ISP_Basic_Setup"],
   },
   {
-    title: "IT Support — System & User Administration",
+    title:
+      "Install Windows, disassemble the PC, and apply thermal paste to the processor.",
     description:
-      "TODO (dummy): Managing user accounts, software installation, data backup routines, and IT inventory documentation for a small office environment.",
-    technologies: ["Windows Server", "Active Directory", "Backup", "Excel"],
+      "The function of thermal paste on a processor is to: Transfer heat generated by the processor, Prevent overheating and thermal throttling, and Maintain component stability and longevity.",
+    technologies: ["Software", "Hardware"],
     category: "IT Support",
     demoType: "screenshots",
     demo: null,
-    url: "https://www.linkedin.com/in/yonathan-christianto/",
-    images: ["/admin-balink.png", "/movie_app.png"],
+    url: "https://lnkd.in/p/giysQFum",
+    images: [
+      "/IT_Support/Install Windows_disassemblethePC/1.output_install_windows",
+      "/IT_Support/Install Windows_disassemblethePC/2.output_install_windows",
+      "/IT_Support/Install Windows_disassemblethePC/3.output_install_windows",
+      "/IT_Support/Install Windows_disassemblethePC/4.output_install_windows",
+      "/IT_Support/Install Windows_disassemblethePC/5.output_install_windows",
+      "/IT_Support/Install Windows_disassemblethePC/6.output_install_windows",
+    ],
   },
 ];
 
 // ---------- Skills (existing skills, 1:1) ----------
 export const skillCategories = [
   {
-    category: "Frontend & Framework",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Vue JS", "Tailwind", "Bootstrap"],
+    category: "DEVELOPMENT",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React.js",
+      "Next.Js",
+      "TypeScript",
+      "Vue.js",
+      "PHP",
+      "Laravel",
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Git / GitHub",
+      "WordPress",
+    ],
   },
   {
-    category: "Backend & Database",
-    skills: ["Php", "Laravel", "Node Js", "Express", "Mongo Db"],
-  },
-  {
-    category: "Productivity",
-    skills: ["Word", "Docs", "Excel", "Sheets", "PowerPoint", "Wordpress"],
+    category: "IT SUPPORT & NETWORKING",
+    skills: [
+      "Computer Hardware Troubleshooting",
+      "Network Troubleshooting",
+      "Network Configuration",
+      "IP Addressing & Subnetting",
+      "Windows & Linux Installation",
+      "Printer Setup & Operation",
+      "CCTV Setup & Operation",
+      "Microsoft Office (Excel, Word, PowerPoint, OneNote)",
+    ],
   },
 ];
 
 // Flat list for the marquee (existing skills only)
 export const skillsMarquee = [
-  "React", "Laravel", "JavaScript", "PHP", "Node Js", "Vue JS", "Tailwind",
-  "Mongo Db", "Express", "Bootstrap", "Wordpress", "HTML", "CSS", "MySQL",
+  "React",
+  "Laravel",
+  "JavaScript",
+  "PHP",
+  "Node Js",
+  "Vue JS",
+  "Tailwind",
+  "Mongo Db",
+  "Express",
+  "Bootstrap",
+  "Wordpress",
+  "HTML",
+  "CSS",
+  "MySQL",
 ];

@@ -129,11 +129,9 @@ const Bubble = ({ msg }) => (
   </div>
 );
 
-const TEASER_KEY = "natan-assistant-teaser-shown";
-
 const Chatbot = () => {
   const [open, setOpen] = useState(false);
-  const [teaser, setTeaser] = useState(false);
+  const [teaser, setTeaser] = useState(true);
   const [input, setInput] = useState("");
   const [thinking, setThinking] = useState(false);
   const [messages, setMessages] = useState([
@@ -157,18 +155,15 @@ const Chatbot = () => {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  // One-time teaser bubble on first visit (per tab session): a small nudge
-  // above the floating button. Disappears when opened or dismissed.
+  // Teaser bubble shows on every page load (state starts true — no timer
+  // needed to reveal it), and auto-hides after ~11s or when dismissed/opened.
   useEffect(() => {
-    if (sessionStorage.getItem(TEASER_KEY)) return;
-    const t = setTimeout(() => setTeaser(true), 2500);
-    return () => clearTimeout(t);
-  }, []);
+    if (!teaser) return;
+    const hide = setTimeout(() => setTeaser(false), 11000);
+    return () => clearTimeout(hide);
+  }, [teaser]);
 
-  const dismissTeaser = () => {
-    setTeaser(false);
-    sessionStorage.setItem(TEASER_KEY, "1");
-  };
+  const dismissTeaser = () => setTeaser(false);
 
   const openPanel = () => {
     dismissTeaser();
@@ -203,30 +198,25 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* One-time teaser popup */}
-      <AnimatePresence>
-        {teaser && !open && (
-          <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.35, ease }}
-            className="fixed bottom-[88px] right-5 z-40 max-w-[240px] rounded-2xl rounded-br-sm border border-ink/10 bg-paper p-4 shadow-xl shadow-ink/15 md:bottom-[96px] md:right-8"
-            role="status"
+      {/* Teaser popup — plain div, visible immediately (no opacity gate:
+          frozen animations in throttled tabs can never hide it). */}
+      {teaser && !open && (
+        <div
+          className="teaser-enter fixed bottom-[76px] right-4 z-[60] max-w-[calc(100vw-5.5rem)] rounded-2xl rounded-br-sm border border-ink/10 bg-paper p-3.5 shadow-xl shadow-ink/15 sm:bottom-[96px] sm:right-8 sm:max-w-[240px] sm:p-4"
+          role="status"
+        >
+          <button
+            onClick={dismissTeaser}
+            aria-label="Dismiss assistant teaser"
+            className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full border border-ink/15 bg-paper text-xs text-ink-soft shadow-sm transition-colors hover:bg-ink hover:text-paper"
           >
-            <button
-              onClick={dismissTeaser}
-              aria-label="Dismiss assistant teaser"
-              className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full border border-ink/15 bg-paper text-xs text-ink-soft shadow-sm transition-colors hover:bg-ink hover:text-paper"
-            >
-              ×
-            </button>
-            <p className="text-sm leading-relaxed text-ink">
-              Hi! 👋 Need any help? Let me guide you through Yonathan&apos;s portfolio.
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ×
+          </button>
+          <p className="text-sm leading-relaxed text-ink">
+            Hi! 👋 Need any help? Let me guide you through Yonathan&apos;s portfolio.
+          </p>
+        </div>
+      )}
 
       {/* Floating button */}
       <AnimatePresence>
@@ -238,7 +228,7 @@ const Chatbot = () => {
             transition={{ duration: 0.3, ease }}
             onClick={openPanel}
             aria-label="Open AI assistant"
-            className="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full border border-ink/10 bg-ink py-3 pl-4 pr-5 text-paper shadow-xl shadow-ink/20 transition-transform duration-300 hover:scale-[1.04] md:bottom-8 md:right-8"
+            className="fixed bottom-5 right-4 z-[60] flex items-center gap-2 rounded-full border border-ink/10 bg-ink py-2.5 pl-3.5 pr-4 text-paper shadow-xl shadow-ink/20 transition-transform duration-300 hover:scale-[1.04] sm:bottom-8 sm:right-8 sm:gap-2.5 sm:py-3 sm:pl-4 sm:pr-5"
           >
             <span className="text-base leading-none">👤</span>
             <span className="text-sm font-medium">Natan AI Asistant</span>

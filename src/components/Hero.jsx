@@ -46,7 +46,7 @@ const Hero = () => {
             >
               YONATHAN
               <br />
-              <span className="text-ink-soft">CHRISTIANTO</span>
+              <span className="text-ink-soft">CH</span>
             </motion.h1>
 
             <motion.div
@@ -54,8 +54,7 @@ const Hero = () => {
               className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-14"
             >
               <p className="max-w-md text-base leading-relaxed text-ink-soft md:text-lg">
-                {profile.role} — I build end-to-end web solutions, from React
-                interfaces to Laravel backends. Currently{" "}
+                {profile.role} — Currently{" "}
                 <span className="text-ink">open to new opportunities</span>.
               </p>
 
@@ -77,9 +76,6 @@ const Hero = () => {
                     Let&apos;s Talk ↗
                   </a>
                 </div>
-                <p className="micro-label text-mute">
-                  React · Laravel · Node.js
-                </p>
               </div>
             </motion.div>
           </div>

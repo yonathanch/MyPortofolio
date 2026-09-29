@@ -19,15 +19,12 @@ const Skills = () => (
         <div>
           <p className="micro-label text-mute">(04) — Skills</p>
           <h2 className="font-display mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-            TOOLKIT<span className="text-accent">.</span>
+            Skills<span className="text-accent">.</span>
           </h2>
         </div>
-        <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
-          Technologies I use across frontend, backend, and daily workflow.
-        </p>
       </motion.div>
 
-      <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-ink/10 bg-ink/10 md:grid-cols-3">
+      <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-ink/10 bg-ink/10 md:grid-cols-2">
         {skillCategories.map((cat, i) => (
           <motion.div
             key={cat.category}

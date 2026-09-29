@@ -42,6 +42,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Prevent any child from pushing the page wider than the viewport on mobile */
+#root {
+  overflow-x: clip;
+}
+
 ::selection {
   background: var(--color-ink);
   color: var(--color-paper);
@@ -76,6 +81,17 @@ section[id] {
   0% { background-color: transparent; }
   25% { background-color: rgba(47, 111, 79, 0.08); }
   100% { background-color: transparent; }
+}
+
+/* Teaser popup: visible by default; the animation only decorates (starts
+   and ends fully opaque) so frozen/throttled CSS animations can never leave
+   the popup invisible. */
+.teaser-enter {
+  animation: teaser-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes teaser-in {
+  from { transform: translateY(8px); }
+  to { transform: translateY(0); }
 }
 
 /* Editorial display type */
@@ -136,3 +152,4 @@ section[id] {
     animation: none;
   }
 }
+
