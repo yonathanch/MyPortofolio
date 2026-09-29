@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { profile, socials } from "../data/portfolio";
+import RobotHero3D from "./RobotHero3D";
 
 const container = {
   hidden: {},
@@ -27,11 +28,19 @@ const Hero = () => {
         className="dot-grid pointer-events-none absolute inset-x-0 top-0 h-[60vh] opacity-40"
       />
 
+      {/* 3D robot — full-hero canvas layer BEHIND content so text/buttons stay clickable */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 block"
+      >
+        <RobotHero3D className="h-full w-full" />
+      </div>
+
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="mx-auto w-full max-w-7xl"
+        className="relative z-10 mx-auto w-full max-w-7xl"
       >
         <div className="flex flex-col items-start gap-12 lg:flex-row lg:items-end lg:justify-between">
           {/* Left — type */}
@@ -80,21 +89,6 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right — portrait */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative hidden shrink-0 lg:block"
-          >
-            <div className="zoom-frame h-[340px] w-[280px] overflow-hidden rounded-t-full border border-ink/15 bg-paper-deep">
-              <img
-                src={profile.photo}
-                alt="Yonathan Christianto portrait"
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </motion.div>
         </div>
 
         {/* bottom meta row */}
