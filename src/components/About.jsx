@@ -1,0 +1,46 @@
+import { motion } from "framer-motion";
+import { profile } from "../data/portfolio";
+
+const ease = [0.22, 1, 0.36, 1];
+
+const About = () => (
+  <section id="about" className="border-t border-ink/10 px-5 py-24 md:px-8 md:py-32">
+    <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-12">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, ease }}
+        className="md:col-span-4"
+      >
+        <p className="micro-label text-mute">(02) — About Me</p>
+        <h2 className="font-display mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+          BEHIND
+          <br />
+          THE CODE
+          <span className="text-accent">.</span>
+        </h2>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, delay: 0.1, ease }}
+        className="md:col-span-8"
+      >
+        <p className="font-display max-w-2xl text-xl leading-snug tracking-tight text-ink md:text-3xl">
+          Fullstack Developer focused on building end-to-end web solutions —
+          trained at Alterra Academy (MSIB batch 4) and Dicoding Indonesia
+          (MSIB batch 5), with shipped client work from wedding websites to
+          boarding house rental platforms.
+        </p>
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
+          {profile.about}
+        </p>
+      </motion.div>
+    </div>
+  </section>
+);
+
+export default About;

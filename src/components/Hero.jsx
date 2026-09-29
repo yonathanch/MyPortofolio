@@ -1,82 +1,133 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { profile, socials } from "../data/portfolio";
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+};
+
+const rise = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 const Hero = () => {
-  const textRef = useRef(null);
-  const isInView = useInView(textRef, { once: false, margin: "-100px" });
-
-  // Animasi huruf dilempar satu per satu
-  const letterAnimation = {
-    hidden: { y: 100, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.05, // Setiap huruf delay 0.05 detik
-        duration: 0.5,
-        type: "spring",
-        stiffness: 120,
-      },
-    }),
-  };
-
-  const name = "Yonathan Christianto".split("");
-
   return (
-    <div
+    <section
       id="home"
-      className="px-4 md:px-12 flex min-h-screen w-full items-center justify-center py-28"
+      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-5 pt-28 md:px-8 md:pt-32"
     >
-      <div className="flex flex-col items-center justify-center gap-10 text-white">
-        {/* Foto Profil */}
-        <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.3 }}
-        >
-          <img
-            src="/ghibli.png"
-            alt="Profile Picture"
-            className="w-[300px] md:w-[300px] cursor-pointer rounded-full shadow-xl shadow-indigo-900 transition-all duration-300 hover:-translate-y-5 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-600"
-          />
-        </motion.div>
+      {/* faint grid backdrop */}
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute inset-x-0 top-0 h-[60vh] opacity-40"
+      />
 
-        {/* About Me */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="mx-auto w-full max-w-7xl"
+      >
+        <div className="flex flex-col items-start gap-12 lg:flex-row lg:items-end lg:justify-between">
+          {/* Left — type */}
+          <div className="max-w-4xl">
+            <motion.p variants={rise} className="micro-label text-mute">
+              Portfolio — 2026
+            </motion.p>
+
+            <motion.h1
+              variants={rise}
+              className="font-display mt-6 text-[clamp(2.5rem,11.5vw,8.5rem)] leading-[0.92] font-semibold"
+            >
+              YONATHAN
+              <br />
+              <span className="text-ink-soft">CHRISTIANTO</span>
+            </motion.h1>
+
+            <motion.div
+              variants={rise}
+              className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-14"
+            >
+              <p className="max-w-md text-base leading-relaxed text-ink-soft md:text-lg">
+                {profile.role} — I build end-to-end web solutions, from React
+                interfaces to Laravel backends. Currently{" "}
+                <span className="text-ink">open to new opportunities</span>.
+              </p>
+
+              <div className="flex flex-col gap-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="#work"
+                    className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-transform duration-300 hover:scale-[1.03]"
+                  >
+                    View My Work
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      ↓
+                    </span>
+                  </a>
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-sm font-medium transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper"
+                  >
+                    Let&apos;s Talk ↗
+                  </a>
+                </div>
+                <p className="micro-label text-mute">
+                  React · Laravel · Node.js
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right — portrait */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative hidden shrink-0 lg:block"
+          >
+            <div className="zoom-frame h-[340px] w-[280px] overflow-hidden rounded-t-full border border-ink/15 bg-paper-deep">
+              <img
+                src={profile.photo}
+                alt="Yonathan Christianto portrait"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* bottom meta row */}
         <motion.div
-          ref={textRef}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="max-w-[600px] flex flex-col items-center justify-center gap-3 text-center"
+          variants={rise}
+          className="mt-16 flex items-center justify-between border-t border-ink/10 pt-6 pb-8 md:mt-24"
         >
-          {/* Animasi Nama */}
-          <motion.h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold flex flex-wrap justify-center gap-[2px]  bg-gradient-to-r from-slate-200 to-gray-500 text-transparent bg-clip-text">
-            {name.map((letter, index) => (
-              <motion.span
-                key={index}
-                custom={index}
-                variants={letterAnimation}
+          <div className="flex gap-6 text-sm">
+            {socials.map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep text-ink-soft hover:text-ink"
               >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
+                {s.name}
+              </a>
             ))}
-          </motion.h1>
-
-          <h2 className="text-2xl md:text-3xl bg-gradient-to-r from-gray-400 to-gray-400 bg-clip-text text-transparent">
-            About Me
-          </h2>
-          <p className="text-sm md:text-base text-pretty max-w-[600px] text-left text-gray-400">
-            I’m fullstack developer with expertise in ReactJS at Alterra
-            Academy (training in the MSIB batch 4 program) and Full-stack
-            Development at Dicoding Indonesia (training in the MSIB batch 5
-            program). I have successfully developed website projects from side
-            jobs, namely wedding website and the latest boarding house rental
-            website using React Js and have worked as a logistics staff. Proven
-            ability to deliver end-to-end web solutions through certified
-            training and project experience.
-          </p>
+          </div>
+          <a
+            href="#work"
+            className="micro-label hidden items-center gap-2 text-mute transition-colors hover:text-ink md:inline-flex"
+          >
+            Scroll ↓
+          </a>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 };
 

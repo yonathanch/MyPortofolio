@@ -1,152 +1,75 @@
 import { motion } from "framer-motion";
-import {
-  BiLogoBootstrap,
-  BiLogoCss3,
-  BiLogoHtml5,
-  BiLogoJavascript,
-  BiLogoNodejs,
-  BiLogoPhp,
-  BiLogoVuejs,
-  BiLogoReact,
-  BiLogoTailwindCss,
-  BiLogoWordpress
-} from "react-icons/bi";
+import { skillCategories, skillsMarquee } from "../data/portfolio";
 
-import {
-  FaFileExcel,
-  FaFileWord,
-  FaFilePowerpoint,
-  FaLaravel,} from "react-icons/fa";
-import {
-  SiGoogledocs,
-  SiGooglesheets,
-  SiExpress,
-  SiMongodb,
-} from "react-icons/si";
+const ease = [0.22, 1, 0.36, 1];
 
-// Data untuk kategori skills
-const skillsData = [
-  {
-    category: "Web Developer",
-    skills: [
-      { name: "HTML", icon: BiLogoHtml5 },
-      { name: "CSS", icon: BiLogoCss3 },
-      { name: "JavaScript", icon: BiLogoJavascript },
-      { name: "Vue JS", icon: BiLogoVuejs },
-      { name: "Laravel", icon: FaLaravel },
-      { name: "React", icon: BiLogoReact },
-      { name: "Tailwind", icon: BiLogoTailwindCss },
-      { name: "Bootstrap", icon: BiLogoBootstrap },
-      { name: "Php", icon: BiLogoPhp },
-      { name: "Node Js", icon: BiLogoNodejs },
-      { name: "Express", icon: SiExpress },
-      { name: "Mongo Db", icon: SiMongodb },
-      { name: "Wordpress", icon: BiLogoWordpress },
-    ],
-  },
-  {
-    category: "Microsoft Office",
-    skills: [
-      { name: "Word", icon: FaFileWord },
-      { name: "Docs", icon: SiGoogledocs },
-      { name: "Excel", icon: FaFileExcel },
-      { name: "Sheets", icon: SiGooglesheets },
-      { name: "PowerPoint", icon: FaFilePowerpoint },
-    ],
-  },
-];
+const Skills = () => (
+  <section
+    id="skills"
+    className="border-t border-ink/10 bg-paper-deep px-5 py-24 md:px-8 md:py-32"
+  >
+    <div className="mx-auto max-w-7xl">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, ease }}
+        className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+      >
+        <div>
+          <p className="micro-label text-mute">(04) — Skills</p>
+          <h2 className="font-display mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+            TOOLKIT<span className="text-accent">.</span>
+          </h2>
+        </div>
+        <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
+          Technologies I use across frontend, backend, and daily workflow.
+        </p>
+      </motion.div>
 
-// Data untuk logo skills slider
-const skills = [
-  { icon: BiLogoHtml5, color: "text-orange-500" },
-  { icon: BiLogoCss3, color: "text-blue-500" },
-  { icon: BiLogoJavascript, color: "text-yellow-500" },
-  { icon: BiLogoVuejs, color: "text-green-500" },
-  { icon: FaLaravel, color: "text-red-500" },
-  { icon: BiLogoReact, color: "text-sky-500" },
-  { icon: BiLogoTailwindCss, color: "text-sky-400" },
-  { icon: BiLogoBootstrap, color: "text-purple-500" },
-  { icon: BiLogoPhp, color: "text-purple-300" },
-  { icon: BiLogoNodejs, color: "text-green-500" },
-  { icon: SiExpress, color: "text-green-500" },
-  { icon: SiMongodb, color: "text-green-500" },
-  { icon: BiLogoWordpress, color: "text-blue-500" },
-];
-
-const Skills = () => {
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  return (
-    <div id="skills" className="w-full py-16 px-4">
-      <div className="flex flex-col items-center justify-center gap-16 md:gap-32">
-        <motion.h1
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-light text-white md:text-6xl pb-8"
-        >
-          Skills
-        </motion.h1>
-      </div>
-
-      <div className="max-w-4xl mx-auto">
-        {skillsData.map((category, index) => (
-          <div
-            key={index}
-            className="mb-10 p-6 rounded-lg bg-black/50 border border-gray-700 shadow-md"
+      <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-ink/10 bg-ink/10 md:grid-cols-3">
+        {skillCategories.map((cat, i) => (
+          <motion.div
+            key={cat.category}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: i * 0.08, ease }}
+            className="bg-paper p-8"
           >
-            <h2 className="text-2xl font-semibold text-gray-300 text-center mb-5">
-              {category.category}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {category.skills.map((skill, idx) => (
-                <div key={idx} className="flex flex-col items-center">
-                  {skill.icon && (
-                    <skill.icon className="text-gray-300 text-3xl" />
-                  )}
-                  <p className="text-lg font-medium text-gray-300">
-                    {skill.name}
-                  </p>        
-                </div>
+            <p className="micro-label text-mute">
+              {String(i + 1).padStart(2, "0")} / {cat.category}
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {cat.skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 text-sm transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper"
+                >
+                  {skill}
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </motion.div>
         ))}
       </div>
+    </div>
 
-      {/* Slider Container */}
-      <div className="relative w-full overflow-hidden py-5">
-        <motion.div
-          className="flex w-max gap-10 px-5"
-          initial={{ x: "100%" }}
-          animate={{ x: "-100%" }}
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        >
-          {/* Duplikasi agar efek looping seamless */}
-          {[...skills, ...skills].map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <motion.div
-                key={index}
-                variants={variants}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 0.6 }}
-              >
-                <Icon
-                  className={`cursor-pointer text-[80px] transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px] ${skill.color}`}
-                />
-              </motion.div>
-            );
-          })}
-        </motion.div>
+    {/* Monochrome marquee */}
+    <div className="relative mt-20 overflow-hidden border-y border-ink/10 py-6">
+      <div className="animate-marquee flex w-max items-center">
+        {[...skillsMarquee, ...skillsMarquee].map((skill, i) => (
+          <span
+            key={skill + i}
+            className="font-display mx-6 flex items-center gap-12 text-3xl font-medium tracking-tight text-ink/70 md:text-5xl"
+          >
+            {skill}
+            <span className="text-accent">·</span>
+          </span>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Skills;

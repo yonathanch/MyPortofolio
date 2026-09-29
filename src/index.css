@@ -1,15 +1,138 @@
 @import "tailwindcss";
-* {
-  font-family: "Geist";
+
+@theme {
+  --font-display: "Archivo", "Geist", ui-sans-serif, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-ink: #111110;
+  --color-ink-soft: #3f3e3a;
+  --color-mute: #75736c;
+  --color-line: #d9d6cd;
+  --color-line-dark: #b9b5a8;
+  --color-paper: #f4f3ef;
+  --color-paper-deep: #ebe9e2;
+  --color-accent: #2f6f4f;
+
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 36s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+}
+
+/* ---------------------------------- */
+/* Base                                */
+/* ---------------------------------- */
+html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Thin premium scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.9);
+  background: var(--color-paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, rgb(6, 6, 212), rgb(0, 0, 0));
+  background: var(--color-line-dark);
+  border-radius: 999px;
+  border: 3px solid var(--color-paper);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-soft);
+}
+
+/* Section anchor offset for sticky navbar */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Subtle flash when the AI assistant scrolls the user to a section */
+.assistant-highlight {
+  animation: assistant-flash 1.6s ease;
+}
+@keyframes assistant-flash {
+  0% { background-color: transparent; }
+  25% { background-color: rgba(47, 111, 79, 0.08); }
+  100% { background-color: transparent; }
+}
+
+/* Editorial display type */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+/* Uppercase micro-label (mono, tracked out) */
+.micro-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Subtle dotted texture band used between sections */
+.dot-grid {
+  background-image: radial-gradient(var(--color-line-dark) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Underline sweep for inline links */
+.link-sweep {
+  position: relative;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Image zoom on hover inside fixed frame */
+.zoom-frame img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zoom-frame:hover img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
 }
