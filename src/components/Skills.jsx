@@ -10,8 +10,8 @@ const Skills = () => (
   >
     <div className="mx-auto max-w-7xl">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease }}
         className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -28,8 +28,8 @@ const Skills = () => (
         {skillCategories.map((cat, i) => (
           <motion.div
             key={cat.category}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: i * 0.08, ease }}
             className="bg-paper p-8"

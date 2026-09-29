@@ -15,6 +15,7 @@ import {
   peekPendingHash,
   scrollToIdWhenReady,
 } from "./utils/scroll";
+import { ThemeProvider } from "./theme/ThemeProvider";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function ScrollToTop() {
 
 function App() {
   return (
+    <ThemeProvider>
     <div className="min-h-screen bg-paper text-ink">
       <ScrollToTop />
       <Navbar />
@@ -65,6 +67,7 @@ function App() {
       <Footer />
       <Chatbot />
     </div>
+    </ThemeProvider>
   );
 }
 

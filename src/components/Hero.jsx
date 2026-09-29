@@ -28,10 +28,12 @@ const Hero = () => {
         className="dot-grid pointer-events-none absolute inset-x-0 top-0 h-[60vh] opacity-40"
       />
 
-      {/* 3D robot — full-hero canvas layer BEHIND content so text/buttons stay clickable */}
+      {/* 3D robot — full-hero canvas layer BEHIND content. The canvas itself
+          stays pointer-enabled so the robot's love-eyes click interaction works;
+          text/buttons live above it (z-10) and receive their own clicks. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 block"
+        className="absolute inset-0 z-0 block"
       >
         <RobotHero3D className="h-full w-full" />
       </div>

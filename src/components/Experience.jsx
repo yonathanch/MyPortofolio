@@ -10,8 +10,8 @@ const Experience = () => (
   >
     <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-12">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease }}
         className="md:col-span-4"
@@ -36,8 +36,8 @@ const Experience = () => (
         {experience.map((item, i) => (
           <motion.div
             key={item.title + item.period}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: i * 0.05, ease }}
             className="group grid grid-cols-1 gap-2 border-t border-ink/10 py-8 transition-colors duration-300 last:border-b hover:bg-paper-deep md:grid-cols-12 md:items-baseline md:gap-6 md:px-4"

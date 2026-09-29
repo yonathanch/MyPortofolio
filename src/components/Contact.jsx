@@ -10,8 +10,8 @@ const Contact = () => (
   >
     <div className="mx-auto max-w-7xl">
       <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease }}
         className="micro-label text-paper/50"
@@ -20,8 +20,8 @@ const Contact = () => (
       </motion.p>
 
       <motion.h2
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.9, delay: 0.1, ease }}
         className="font-display mt-6 text-[clamp(2.6rem,10.5vw,7.5rem)] leading-[0.95] font-semibold tracking-tight"
@@ -35,8 +35,8 @@ const Contact = () => (
       </motion.h2>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, delay: 0.15, ease }}
         className="mt-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between"
@@ -58,8 +58,8 @@ const Contact = () => (
 
       {/* Contact grid */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, delay: 0.2, ease }}
         className="mt-20 grid gap-px overflow-hidden rounded-xl bg-paper/10 md:grid-cols-4"

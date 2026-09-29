@@ -6,8 +6,8 @@ const ease = [0.22, 1, 0.36, 1];
 const Footer = () => (
   <footer className="bg-ink px-5 pb-10 pt-4 text-paper md:px-8">
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease }}
       className="mx-auto max-w-7xl"

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks, socials, profile } from "../data/portfolio";
 import { setPendingHash, scrollToIdWhenReady } from "../utils/scroll";
+import ThemeToggle from "./ui/theme-toggle";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -114,6 +115,7 @@ const Navbar = () => {
 
           {/* Right cluster */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <a
               href={profile.cv}
               download
@@ -178,6 +180,7 @@ const Navbar = () => {
                 ))}
               </ul>
               <div className="flex items-center justify-between text-sm text-ink-soft">
+                <ThemeToggle />
                 <div className="flex gap-5">
                   {socials.map((s) => (
                     <a

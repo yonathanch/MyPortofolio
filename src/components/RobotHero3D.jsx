@@ -20,12 +20,23 @@ class HeartCurve extends THREE.Curve {
 
 const sharedHeartCurve = new HeartCurve();
 
+// Passes the R3F camera/scene/raycaster up to the host component so a
+// window-level pointer bridge can raycast even though the canvas sits
+// beneath the content layer.
+function SceneApiBridge({ apiRef }) {
+  const { camera, scene, raycaster } = useThree();
+  useEffect(() => {
+    apiRef.current = { camera, scene, raycaster };
+  }, [apiRef, camera, scene, raycaster]);
+  return null;
+}
+
 function ResponsiveGroup({ children, scale = 1, mobile = false }) {
   const { viewport } = useThree();
   const s = Math.min(1.1, viewport.width / 3.5) * scale;
   // Keep the robot anchored to the right side of the hero so text stays readable.
   return (
-    <group position={[mobile ? 0.45 : viewport.width / 4.5, mobile ? 1.1 : 0, 0]} scale={s}>
+    <group position={[mobile ? 0 : viewport.width / 4.5, mobile ? 1.1 : 0, 0]} scale={s}>
       {children}
     </group>
   );
@@ -198,6 +209,7 @@ function RobotEye({
   blinkDuration = 0.15,
   blinkCycle = 3.0,
   isLovedRef,
+  isLovedProp = false,
 }) {
   const groupRef = useRef(null);
   const normalEyesRef = useRef(null);
@@ -207,7 +219,9 @@ function RobotEye({
     if (!groupRef.current || !normalEyesRef.current || !heartEyeRef.current)
       return;
 
-    const isHeart = isLovedRef.current;
+    // Either the direct mesh hit (desktop, empty area) or the window-level
+    // raycast bridge (clicks through the content layer) triggers hearts.
+    const isHeart = isLovedRef.current || isLovedProp;
 
     normalEyesRef.current.visible = !isHeart;
     heartEyeRef.current.visible = isHeart;
@@ -373,6 +387,7 @@ function generatePbrTexturesAsync() {
 
 function RobotPrototype({
   pointerRef,
+  isLoved = false,
   neckParams = {
     baseR: 0.25,
     baseH: -0.01,
@@ -434,11 +449,11 @@ function RobotPrototype({
     // upper area since there is no cursor to follow.
     if (pointerRef?.current?.auto) {
       const t = state.clock.getElapsedTime();
-      // Slow sine patrol centered on the right anchor, clamped so the
-      // robot never leaves the screen.
-      const anchor = state.viewport.width / 4.5;
-      const span = state.viewport.width / 5;
-      const targetX = anchor + Math.sin(t * 0.45) * span;
+      // Slow sine patrol starting from center, clamped so the robot never
+      // leaves the screen.
+      const anchor = 0;
+      const span = state.viewport.width / 3.5;
+      const targetX = anchor + Math.sin(t * 0.45 + Math.PI / 2) * span;
       bodyRef.current.position.x = THREE.MathUtils.lerp(
         bodyRef.current.position.x,
         targetX,
@@ -588,6 +603,7 @@ function RobotPrototype({
     <group
       ref={bodyRef}
       position={[0, -0.3, 0]}
+      userData={{ isRobot: true }}
       onPointerDown={handlePointerDown}
       onPointerOver={() => (document.body.style.cursor = "pointer")}
       onPointerOut={() => (document.body.style.cursor = "auto")}
@@ -661,6 +677,7 @@ function RobotPrototype({
             blinkDuration={design.parpadeoDuracion}
             blinkCycle={design.parpadeoFrecuencia}
             isLovedRef={isLovedRef}
+            isLovedProp={isLoved}
           />
           <RobotEye
             position={[design.separacionOjos, 0, 0]}
@@ -669,6 +686,7 @@ function RobotPrototype({
             blinkDuration={design.parpadeoDuracion}
             blinkCycle={design.parpadeoFrecuencia}
             isLovedRef={isLovedRef}
+            isLovedProp={isLoved}
           />
         </group>
 
@@ -720,6 +738,56 @@ export default function RobotHero3D({ className = "", style }) {
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
+  // The content layer (z-10) sits above the canvas, so clicks on text/buttons
+  // never reach it — but clicks on empty hero area do. For clicks anywhere in
+  // the hero, raycast manually so tapping the robot through/around content
+  // still triggers the love-eyes (except on real interactive elements).
+  const canvasApiRef = useRef(null);
+  const loveTimerRef = useRef(null);
+  const [loveMode, setLoveMode] = useState(false);
+
+  useEffect(() => {
+    const onDown = (e) => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      )
+        return;
+      // Let real interactive elements handle their own clicks.
+      if (e.target.closest("a, button, input, textarea, select, [role=\"button\"]"))
+        return;
+
+      const api = canvasApiRef.current;
+      if (!api) return;
+      const ndc = new THREE.Vector2(
+        ((e.clientX - rect.left) / rect.width) * 2 - 1,
+        -((e.clientY - rect.top) / rect.height) * 2 + 1,
+      );
+      api.raycaster.setFromCamera(ndc, api.camera);
+      const hits = api.raycaster.intersectObject(api.scene, true);
+      const hitRobot = hits.some((h) => {
+        let o = h.object;
+        while (o) {
+          if (o.userData?.isRobot) return true;
+          o = o.parent;
+        }
+        return false;
+      });
+      if (hitRobot) {
+        setLoveMode(true);
+        if (loveTimerRef.current) clearTimeout(loveTimerRef.current);
+        loveTimerRef.current = setTimeout(() => setLoveMode(false), 2000);
+      }
+    };
+    window.addEventListener("pointerdown", onDown, true);
+    return () => window.removeEventListener("pointerdown", onDown, true);
+  }, []);
+
   const entorno = {
     fondoArriba: "#cecbcb",
     fondoMedio: "#9a9a9a",
@@ -738,6 +806,8 @@ export default function RobotHero3D({ className = "", style }) {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={entorno.luzAmbiente} color="#ffffff" />
+
+        <SceneApiBridge apiRef={canvasApiRef} />
 
         <Environment preset="studio" blur={0.5} />
 
@@ -775,6 +845,7 @@ export default function RobotHero3D({ className = "", style }) {
             blinkCycle={3.0}
             metalness={0.0}
             pointerRef={pointerRef}
+            isLoved={loveMode}
           />
         </ResponsiveGroup>
       </Canvas>

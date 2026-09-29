@@ -5,13 +5,14 @@
   --font-sans: "Geist", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
+  /* Light theme: pure white paper */
   --color-ink: #111110;
   --color-ink-soft: #3f3e3a;
   --color-mute: #75736c;
   --color-line: #d9d6cd;
   --color-line-dark: #b9b5a8;
-  --color-paper: #f4f3ef;
-  --color-paper-deep: #ebe9e2;
+  --color-paper: #ffffff;
+  --color-paper-deep: #f4f3ef;
   --color-accent: #2f6f4f;
 
   --animate-marquee: marquee 36s linear infinite;
@@ -27,6 +28,18 @@
   }
 }
 
+/* Dark theme overrides — same semantic slots, dark values. */
+.dark {
+  --color-ink: #f0efe9;
+  --color-ink-soft: #b8b5aa;
+  --color-mute: #8a877c;
+  --color-line: #3a3934;
+  --color-line-dark: #55534a;
+  --color-paper: #121211;
+  --color-paper-deep: #1c1b19;
+  --color-accent: #5da985;
+}
+
 /* ---------------------------------- */
 /* Base                                */
 /* ---------------------------------- */
@@ -40,6 +53,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Prevent any child from pushing the page wider than the viewport on mobile */
