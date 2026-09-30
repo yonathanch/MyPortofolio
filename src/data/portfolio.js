@@ -332,7 +332,9 @@ export const projects = [
     demoType: "linkedin-video",
     demo: "https://lnkd.in/p/gKQ-v8TF",
     url: "https://lnkd.in/p/gKQ-v8TF",
-    images: ["/MikroTik_ISP_Basic_Setup/1.MikroTik_ISP_Basic_Setup"],
+    images: [
+      "/IT_Support/MikroTik_ISP_Basic_Setup/1.MikroTik_ISP_Basic_Setup.png",
+    ],
   },
   {
     title:
@@ -345,12 +347,12 @@ export const projects = [
     demo: null,
     url: "https://lnkd.in/p/giysQFum",
     images: [
-      "/IT_Support/Install Windows_disassemblethePC/1.output_install_windows",
-      "/IT_Support/Install Windows_disassemblethePC/2.output_install_windows",
-      "/IT_Support/Install Windows_disassemblethePC/3.output_install_windows",
-      "/IT_Support/Install Windows_disassemblethePC/4.output_install_windows",
-      "/IT_Support/Install Windows_disassemblethePC/5.output_install_windows",
-      "/IT_Support/Install Windows_disassemblethePC/6.output_install_windows",
+      "/IT_Support/Install_Windows/1.output_install_windows.jpg",
+      "/IT_Support/Install_Windows/2.output_install_windows.jpg",
+      "/IT_Support/Install_Windows/3.output_install_windows.jpg",
+      "/IT_Support/Install_Window/4.output_install_windows.jpg",
+      "/IT_Support/Install_Windows/5.output_install_windows.jpg",
+      "/IT_Support/Install_Windos/6.output_install_windows.jpg",
     ],
   },
 ];
